@@ -328,4 +328,9 @@ if __name__ == '__main__':
         print("Error: DISCORD_TOKEN environment variable is not set.")
         sys.exit(1)
     client = LSysBot(intents=discord.Intents.all())
-    client.run(token)
+    try:
+        client.run(token)
+    except discord.errors.LoginFailure as e:
+        print(f"Error: Failed to log in to Discord. The token may be invalid or expired: {e}")
+        print("Please update the DISCORD_TOKEN secret with a valid bot token.")
+        sys.exit(1)
