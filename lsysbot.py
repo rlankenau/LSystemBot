@@ -2,6 +2,7 @@
 
 import traceback
 import sys
+import os
 import random
 import discord
 from random import randint
@@ -322,5 +323,9 @@ class LSysBot(discord.Client):
 
 
 if __name__ == '__main__':
-    client = LSysBot(intents=discord.Intents.all() )
-    client.run("MTA2NTMzNzQ0MjM0Njk5NTczMg.GnFyc2.skdSRQyRBbCKnZVz5QyUbkgHs7gd4JsKXGs5Jg")
+    token = os.environ.get("DISCORD_TOKEN")
+    if not token:
+        print("Error: DISCORD_TOKEN environment variable is not set.")
+        sys.exit(1)
+    client = LSysBot(intents=discord.Intents.all())
+    client.run(token)
