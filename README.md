@@ -93,6 +93,28 @@ Show available image size presets.
 
 ## Setup
 
+### Generating an Invite Link
+
+When adding the bot to a server you need the **`bot`** OAuth2 scope and the following bot permissions:
+
+| Permission | Why it is needed |
+|------------|-----------------|
+| View Channel | Read messages and discover the `secret-bot-stuff` channel |
+| Read Message History | Access past messages in a channel |
+| Send Messages | Post text replies and status messages |
+| Attach Files | Upload generated fractal images |
+| Add Reactions | Add clock / emoji reactions to commands |
+
+The combined **permission integer** for the above is **`101440`**.
+
+Use this URL template to invite the bot (replace `YOUR_CLIENT_ID` with your application's client ID from the [Developer Portal](https://discord.com/developers/applications)):
+
+```
+https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=101440
+```
+
+You can also tick these same permissions in the **OAuth2 → URL Generator** page of the Developer Portal.
+
 ### Prerequisites
 
 - Python 3.10 or newer
